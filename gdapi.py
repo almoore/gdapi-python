@@ -193,8 +193,8 @@ class Client(object):
 
         if not self._cache_time:
             self._cache_time = 60 * 60 * 24  # 24 Hours
-
-        self._load_schemas()
+        if self._url is not None:
+            self._load_schemas()
 
     def valid(self):
         return self._url is not None and self.schema is not None
